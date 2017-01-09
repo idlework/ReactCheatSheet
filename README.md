@@ -63,36 +63,36 @@ class App extends Component {
 }
 ```
 
-## Component Lifecycle
+## Component Lifecycle Methods
 Each component has several "lifecycle methods" that you can override to run code at particular times in the process. Methods prefixed with **will** are called right before something happens, and methods prefixed with **did** are called right after something happens.
 
 ```javascript
 componentWillMount() {
-  // function is called immediately before the initial render
+  // method is called immediately before the initial render
 }
 
 componentDidMount() {
-  // function is called immediately after the initial render
+  // method is called immediately after the initial render
 }
 
 componentWillReceiveProps() {
-  // function is called when component is receiving new props
+  // method is called when component is receiving new props
 }
 
 shouldComponentUpdate() {
-  // function is called before rendering with new props or state
+  // method is called before rendering with new props or state
 }
  
 componentWillUpdate() {
-  // function is called immediately before rendering
+  // method is called immediately before rendering
 }
 
 componentDidUpdate() {
-  // function is called immediately after rendering
+  // method is called immediately after rendering
 }
 
 componentWillUnmount() {
-  // function is called immediately before component is unmounted from DOM
+  // method is called immediately before component is unmounted from DOM
 }
 ```
 
