@@ -63,7 +63,7 @@ class App extends Component {
 }
 ```
 
-## Component lifecycle
+## Component Lifecycle
 Each component has several "lifecycle methods" that you can override to run code at particular times in the process. Methods prefixed with **will** are called right before something happens, and methods prefixed with **did** are called right after something happens.
 
 ```javascript
@@ -98,3 +98,21 @@ componentWillUnmount() {
 
 Find more information about [component lifcycle](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) on the React documentation page.
 
+## Conditional Rendering
+In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
+```javascript
+render() {
+  const {isLoggedIn, username} = this.state
+  return (
+    <div className={`${isLoggedIn ? 'login' : 'logout'}`}>
+      {isLoggedIn ? <p>Logged in as {username}.</p> : <p>Logged out.</p>}
+    </div>
+  )
+}
+```
+
+## More Information
+* [Documentation](https://facebook.github.io/react/docs)
+* [Github](https://github.com/facebook/react)
+* [Create React apps with no build configuration](https://github.com/facebookincubator/create-react-app)
+* [React developer tools for chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
