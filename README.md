@@ -3,26 +3,98 @@ This React cheat sheet is for my students who attend the three days React crash 
 
 ## Hello World
 ```javascript
-// Import React and ReactDOM
+// Import React and ReactDOM.
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// Render component into the DOM
+// Render component into the DOM.
 ReactDOM.render(
   <h1>Hello, World!</h1>,
-  document.getElementById('main')
+  document.getElementById('root')
 )
 ```
 
 ## Stateless Components
 ```javascript
-// Stateless component
-const title = () => {
+// Stateless component.
+const Title = () => {
   return <h1>React Crash Course Cheat Sheet</h1>
 }
+```
 
-// Stateless component that receives properties
-const description = (props) => {
-  return <p>Today you will learn react, {props.name}</p>
+```javascript
+// Stateless component that receives properties.
+const Description = (props) => {
+  return <p>In the upcoming three days you will learn the basics of react, {props.name}.</p>
 }
 ```
+
+```javascript
+// Component can only return one element.
+const Introduction = () => {
+  return (
+    <section>
+      <Title />
+      <Description name="Peter"/>
+    </section>
+  )
+}
+```
+Find more information about [components and props](https://facebook.github.io/react/docs/components-and-props.html) on the React documentation page.
+
+## Class
+```javascript
+// use classes to create a component with state.
+import { Component } from 'react'
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {date: new Date()}
+  }
+  
+  render() {
+    return (
+      <p>
+        Today it is {this.state.date.toLocaleTimeString()}.
+      </p>
+    )
+  }
+}
+```
+
+## Component lifecycle
+Each component has several "lifecycle methods" that you can override to run code at particular times in the process. Methods prefixed with **will** are called right before something happens, and methods prefixed with **did** are called right after something happens.
+
+```javascript
+componentWillMount() {
+  // function is called immediately before the initial render
+}
+
+componentDidMount() {
+  // function is called immediately after the initial render
+}
+
+componentWillReceiveProps() {
+  // function is called when component is receiving new props
+}
+
+shouldComponentUpdate() {
+  // function is called before rendering with new props or state
+}
+ 
+componentWillUpdate() {
+  // function is called immediately before rendering
+}
+
+componentDidUpdate() {
+  // function is called immediately after rendering
+}
+
+componentWillUnmount() {
+  // function is called immediately before component is unmounted from DOM
+}
+```
+
+Find more information about [component lifcycle](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) on the React documentation page.
+
